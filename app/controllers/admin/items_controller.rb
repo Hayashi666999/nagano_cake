@@ -4,11 +4,11 @@ class Admin::ItemsController < ApplicationController
    @item = Item.new
   end
   
-def index
+　def index
     @book = Book.new
     @users = User.all
     @user = current_user
-  end
+　end
   
   def show
     @user=User.find(params[:id])
