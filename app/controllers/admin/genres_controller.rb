@@ -1,9 +1,9 @@
+  class Admin::GenresController < ApplicationController
   def index
-    @book = Book.new
-    @books = Book.all
-    @user = current_user
+    @genres = Genre.all
   end
-  
+
   def edit
     @books = Book.find(params[:id])
+  end
   end
