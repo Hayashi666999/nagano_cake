@@ -1,18 +1,4 @@
-
-  		 <% if @books.errors.any? %>
-  <%= @books.errors.count %>error prohibited this obj from being saved:
-  <ul>
-    <% @books.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-  		<%= form_with model: @books, url: book_path(@books.id), method: :patch do |f| %>
-
-  <h4>Title</h4>
+<h1>ジャンル編集</h1>
   <%= f.text_field :name %>
-  
-  <tb><%= f.submit 'Update Book',class:"btn btn-success" %></tb>
-  
+  <%= f.submit '変更を保存',class:"btn btn-success" %>
 <% end %>
