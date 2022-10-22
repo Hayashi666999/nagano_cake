@@ -1,0 +1,19 @@
+<h1>配送先編集</h1>
+
+    <%= form_with model: @address, url: public_address_path do |f| %>
+  <div class="field">
+    <%= f.label :postal_code %><br />
+    <%= f.text_field :postal_code, autofocus: true, autocomplete: "郵便番号（ハイフンなし）" %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "住所" %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "宛名" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "変更内容を保存",class:"btn btn-success" %>
+  </div>
+<% end %>

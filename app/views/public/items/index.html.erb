@@ -1,0 +1,20 @@
+<h1>商品一覧（全x件）</h1>
+ <% @genres.each do |genre| %>
+ <%= link_to genre.name, public_items_path(genre_id: genre.id) %><br>
+ <% end %>
+<table>
+ <% @items.each do |item| %>
+ <%= link_to public_item_path(item) do %>
+<tr>
+<tb><%= image_tag item.get_image(100,100) %></tb>
+</tr>
+  <tr>
+    <td><%= item.name %></td>
+  </tr>
+  <tr>
+    <td><%= item.price %></td>
+  </tr>
+  <% end %>
+  <% end %>
+
+ </table>

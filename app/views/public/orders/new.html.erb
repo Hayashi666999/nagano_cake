@@ -1,0 +1,33 @@
+<h1>注文情報入力</h1>
+<h2>支払方法</h2>
+<%= form_with model: @order,url: public_orders_confirm_path do |f| %>
+  <%= f.radio_button :payment_method, :credit_card %>
+  <%= f.label :payment_method, "クレジットカード", {value: :credit_card, style: "display: inline-block;"} %>
+  <%= f.radio_button :payment_method, :transfer %>
+  <%= f.label :payment_method, "銀行振込", {value: :transfer, style: "display: inline-block;"} %>
+<h2>お届け先</h2>
+  <%= f.radio_button :address_option, "0" %>
+  <%= f.label :address_option, "ご自身の住所", {value: "0"} %>
+  〒<%= current_customer.postal_code %> <%= current_customer.address %> <%= current_customer.last_name %><%= current_customer.first_name %>
+  <%= f.radio_button :address_option, "1" %>
+  <%= f.label :address_option, "登録済住所から選択", {value: "1"} %>
+  <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses, :id, :address_display) %>
+　<%= f.radio_button :address_option, "2" %>
+  <%= f.label :address_option, "新しいお届け先", {value: "2"} %>
+    郵便番号（ハイフンなし）
+    <div class="field">
+    <%= f.label :postal_code %><br />
+    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+  </div>
+  住所<div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+  宛名<div class="actions">
+    <%= f.submit "確認画面に進む",class:"btn btn-primary" %>
+  </div>
+<% end %>
