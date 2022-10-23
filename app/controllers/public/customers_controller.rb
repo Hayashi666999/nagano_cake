@@ -1,11 +1,11 @@
 class Public::CustomersController < ApplicationController
 
   def show
-    @customers = Customer.where(customer_id: current_customer.id)
+
   end
 
   def edit
-    @customer = Customer.where(customer_id: current_customer.id)
+    @customer = current_customer
   end
 
   def unsubscribe_confirm
@@ -21,9 +21,12 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
-　　　@customer = Customer.find(params[:id])
-      @customer.update(cart_item_params)
+      current_customer.update!(customer_params)
     redirect_to public_customers_mypage_path
   end
+private
+def customer_params
+  params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postal_code, :address, :telephone_number )
+end
 
 end

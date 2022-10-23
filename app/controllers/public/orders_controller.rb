@@ -9,7 +9,7 @@ def index
 end
 
 def show
-  @order = Order.where(params[:id])
+  @order = Order.find(params[:id])
 end
 
 def confirm
@@ -26,8 +26,6 @@ def confirm
     @order.postal_code = @address.postal_code
     @order.address = @address.address
     @order.name = @address.name
-  else
-    @order = Order.new(order_params)
   end
 end
 

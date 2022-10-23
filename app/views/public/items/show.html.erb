@@ -1,4 +1,5 @@
 <%= image_tag @item.get_image(250,200) %>
+<%= form_with model: CartItem.new,url:public_cart_items_path do |f| %>
 <table>
   <tr>
    <td><%= @item.name %></td>
@@ -11,11 +12,12 @@
    <td><%= (@item.price*1.1).floor %>(税込)</td>
   </tr>
    <tr>
-   <td><%= form_with model: CartItem.new,url:public_cart_items_path do |f| %></td>
+
    <td> <%= f.hidden_field :item_id, :value => @item.id %></td>
    <td> <%= f.hidden_field :customer_id, :value => current_customer.id %></td>
    <td><%= f.select :amount, *[1..10] %></td>
    <td><%= f.submit 'カートに入れる',class: 'btn btn-success' %></td>
-   <% end %>
+
   </tr>
 </table>
+ <% end %>
