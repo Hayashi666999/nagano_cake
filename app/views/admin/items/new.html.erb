@@ -16,10 +16,10 @@
 <th>税抜価格</th>
 <%= f.text_field :price %>円
 <br>
-  <%= f.radio_button :is_active, :male %>
-  <%= f.label :is_active, "販売中", {value: :male, style: "display: inline-block;"} %>
-  <%= f.radio_button :is_active, :female %>
-  <%= f.label :is_active, "販売停止中", {value: :female, style: "display: inline-block;"} %>
+  <%= f.radio_button :is_active, true %>
+  <%= f.label :is_active, "販売中", {value: true, style: "display: inline-block;"} %>
+  <%= f.radio_button :is_active, false %>
+  <%= f.label :is_active, "販売停止中", {value: false, style: "display: inline-block;"} %>
 <br>
 <%= f.submit '新規登録',class:"btn btn-success" %>
 <% end %>

@@ -19,6 +19,8 @@ namespace :admin do
     resources :items
     resources :genres
     resources :customers
+    resources :orders
+    resources :order_details
   end
 
   namespace :public do
