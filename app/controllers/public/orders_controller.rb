@@ -41,7 +41,7 @@ def create
   @order_detail = OrderDetail.new
   @order_detail.order_id = @order.id
   @order_detail.item_id = cart_item.item.id
-  @order_detail.purchase_price = cart_item.item.price
+  @order_detail.purchase_price = cart_item.item.with_tax_price
   @order_detail.quantity = cart_item.amount
   @order_detail.making_status = 0
   @order_detail.save

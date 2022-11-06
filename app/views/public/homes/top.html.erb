@@ -9,9 +9,9 @@
 <h1>新着商品</h1>
 
  <% @items.each do |item| %>
- <%= link_to public_item_path(item.id) do %>
- <%= image_tag item.get_image(100,100) %><br>
- <%= item.name %><br>
- <%= item.price %><br>
+ <%= link_to public_item_path(item.id) do %></br>
+ <%= image_tag item.get_image(100,100) %></br>
+ <%= item.name %></br>
+ ￥<%= item.price %>
  <% end %>
  <% end %>

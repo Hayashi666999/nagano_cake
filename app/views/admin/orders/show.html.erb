@@ -37,8 +37,8 @@
     <% end %>
   </table>
   <h2>商品合計</h2>
-  <%= @order.billing_amount %>
+  <%= @order.billing_amount-800 %>
   <h2>送料</h2>
   <%= @order.postage %>
   <h2>請求金額合計</h2>
-  <%= @order.billing_amount+@order.postage %>
+  <%= @order.billing_amount %>
